@@ -3,6 +3,9 @@ const path = require('path');
 const authRoutes = require('./routes/auth');
 
 const app = express();
+const cors = require('cors');
+
+app.use(cors());
 
 app.use(express.json());
 
