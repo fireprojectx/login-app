@@ -80,7 +80,9 @@
         <a href="#" onclick="showLoginForm()">Já tem uma conta? Faça login</a>
     </div>
 
+    <!-- Coloque o script JavaScript aqui -->
     <script>
+        // Funções de alternância entre formulários
         function showSignupForm() {
             document.getElementById('login-container').style.display = 'none';
             document.getElementById('signup-container').style.display = 'block';
@@ -91,6 +93,7 @@
             document.getElementById('login-container').style.display = 'block';
         }
 
+        // Função de login
         async function login() {
             const email = document.getElementById('login-email').value;
             const password = document.getElementById('login-password').value;
@@ -107,14 +110,16 @@
                 }
 
                 const result = await response.json();
-                alert('Login bem-sucedido!');
-                console.log(result);  // Aqui você pode redirecionar o usuário ou exibir conteúdo protegido.
+                //alert('Login bem-sucedido!');
+                // Redireciona para a nova página após login
+                window.location.href = '/dashboard.html';
             } catch (error) {
                 console.error('Erro ao fazer login:', error);
                 alert('Erro ao fazer login.');
             }
         }
 
+        // Função de cadastro
         async function signup() {
             const name = document.getElementById('signup-name').value;
             const email = document.getElementById('signup-email').value;
@@ -141,6 +146,8 @@
     </script>
 </body>
 </html>
+
+
 
 
 

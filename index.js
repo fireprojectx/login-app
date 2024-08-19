@@ -6,16 +6,14 @@ const app = express();
 
 app.use(express.json());
 
-// Servindo o arquivo HTML para a rota raiz
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
+// Servindo arquivos estáticos da pasta 'public'
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Usando as rotas de autenticação
 app.use('/auth', authRoutes);
 
-// Configurando a porta e iniciando o servidor
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Servidor rodando na porta ${PORT}`);
 });
+
